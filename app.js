@@ -18,19 +18,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function showModal(email){
-		// set aria, inject email and show modal
 		modalEmail.textContent = email;
 		modal.setAttribute('aria-hidden', 'false');
 		document.body.classList.add('modal-open');
-		// focus primary action for accessibility
 		modalDismiss.focus();
 	}
 
 	function hideModal(){
 		modal.setAttribute('aria-hidden', 'true');
 		document.body.classList.remove('modal-open');
-		// return focus to subscribe button
-		document.getElementById('subscribe-btn').focus();
+		
 	}
 
 	form.addEventListener('submit', function (e) {
@@ -47,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			return;
 		}
 
-		// valid -> show modal and reset form
 		showModal(emailInput.value);
 		form.reset();
 	});
@@ -55,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	modalClose.addEventListener('click', hideModal);
 	modalDismiss.addEventListener('click', hideModal);
 
-	// close modal on Escape
 	document.addEventListener('keydown', function (e) {
 		if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
 			hideModal();
