@@ -1,17 +1,18 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-@font-face{
+@font-face {
     font-family: 'Roboto';
     src: url('assets/fonts/Roboto-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
-@font-face{
+
+@font-face {
     font-family: 'Roboto';
     src: url('assets/fonts/Roboto-Bold.ttf') format('truetype');
     font-weight: 700;
@@ -19,21 +20,21 @@
     font-display: swap;
 }
 
-body{
+body {
     background: hsl(234, 29%, 20%);
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-main{
+main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container{
+.container {
     background-color: aliceblue;
     padding: 20px;
     border-radius: 2rem;
@@ -41,49 +42,53 @@ main{
     margin: 20px;
 }
 
-.content ul li{
+.content ul li {
     list-style: none;
     font-size: 16px;
-    padding-left: 15px;
+
 }
+
+.content img {}
 
 .content {
     margin: 80px 50px;
     width: 400px;
 }
 
-.content h1{
+.content h1 {
     padding-bottom: 20px;
 }
 
-.content p{
+.content p {
     padding: 20px 0;
     font-size: 16px;
 }
 
-.content ul{
+.content ul {
     padding-bottom: 20px;
 }
 
-.content .form{
+.content .form {
     display: flex;
     flex-direction: column;
     width: 400px;
 
 }
 
-.content .form label{
+.content .form label {
     padding-bottom: 10px;
     font-weight: 600;
-    
+
 }
-.content .form input{
+
+.content .form input {
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
 }
-.content .form button{
+
+.content .form button {
     padding: 15px;
     background-color: hsl(234, 29%, 20%);
     color: #fff;
@@ -93,10 +98,232 @@ main{
     font-size: 16px;
 }
 
-.content .form button:hover{
+.content .form button:hover {
     background-color: hsl(4, 100%, 67%);
 }
 
-.sideimg img{
-    height: 100%;
+.sideimg img {
+    height: auto;
+}
+    
+/* Design backgrounds (desktop and mobile) and modal sizing */
+@media (min-width: 1440px){
+    body{
+        background-image: url('design/desktop-design.jpg');
+        background-repeat: no-repeat;
+        background-position: right top;
+        background-size: contain;
+    }
+    .container{ max-width: 1200px; background: #fff; margin: 0 auto; }
+    .content{ width: 480px; }
+    .sideimg img{ width: 520px; height: auto; }
+    .modal-content{ max-width: 720px; padding: 48px; border-radius: 16px; }
+    .modal-icon{ width: 64px; margin-bottom: 20px; }
+    .modal-title{ font-size: 24px; margin-bottom: 12px; }
+    .modal-text{ font-size: 16px; color: hsl(235,18%,26%); margin-bottom: 20px; }
+    .modal-action{ padding: 12px 22px; border-radius: 10px; background: hsl(234,29%,20%); color: #fff; border: none; cursor: pointer; }
+}
+
+@media (max-width: 375px){
+    /* Mobile: code-based layout instead of image background */
+    body{ background: hsl(234, 29%, 20%); }
+    .container{ background: #fff; width: 335px; margin: 12px auto; padding: 16px; border-radius: 18px; box-shadow: 0 12px 24px rgba(0,0,0,0.25); display: block; }
+    .modal-content{ max-width: 320px; padding: 20px; border-radius: 12px; }
+    .modal-icon{ width: 48px; margin-bottom: 12px; }
+    .modal-title{ font-size: 20px; margin-bottom: 8px; color: hsl(235,18%,26%); }
+    .modal-text{ font-size: 14px; color: hsl(235,18%,26%); margin-bottom: 14px; }
+    .modal-action{ padding: 10px 18px; border-radius: 8px; background: hsl(234,29%,20%); color: #fff; border: none; cursor: pointer; width: 100%; }
+    /* Mobile success modal fills entire screen */
+    .modal[aria-hidden="false"] .modal-content{ width: 100%; max-width: none; height: 100vh; padding: 40px 20px 20px 20px; border-radius: 0; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; }
+    .modal[aria-hidden="false"] .modal-icon{ align-self: flex-start; }
+    .modal[aria-hidden="false"] .modal-title{ text-align: left; width: 100%; }
+    .modal[aria-hidden="false"] .modal-text{ text-align: left; width: 100%; }
+    .modal[aria-hidden="false"] .modal-action{ margin-top: auto; width: 100%; }
+    .modal-close{ display: none; }
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+}
+
+.modal[aria-hidden="false"] {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 28px;
+    border-radius: 12px;
+    max-width: 420px;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 48px;
+    margin-bottom: 12px;
+}
+
+.modal-content h2 {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+@media (max-width: 375px){
+    .modal-content h2 {
+        text-align: left;
+    }
+}
+
+.modal-content p {
+    color: #333;
+    margin-bottom: 18px;
+}
+
+.modal-content button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: hsl(234, 29%, 20%);
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Error state */
+.content .form input:invalid {
+    border-color: hsl(4, 100%, 67%);
+}
+
+.error {
+    color: hsl(4, 100%, 67%);
+    font-size: 13px;
+    height: 16px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Mobile-only illustration (hidden by default, shown at mobile breakpoint) */
+.mobile-illustration {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin-bottom: 18px;
+}
+
+/* When modal is open hide the rest of the page so only the modal is visible */
+.modal-open main {
+    display: none;
+}
+
+/* Responsive breakpoints */
+/* Mobile: 375px */
+@media (max-width: 375px) {
+    main {
+        height: auto;
+        padding: 12px 0;
+        justify-content: flex-start;
+    }
+
+    .container {
+        flex-direction: column;
+        margin: 12px auto;
+        border-radius: 12px;
+        padding: 12px;
+        background: #fff;
+        width: 335px;
+    }
+
+    .mobile-illustration {
+        display: block;
+        width: 100vw;
+        max-height: 160px;
+        object-fit: cover;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+    }
+
+    .content {
+        margin: 12px 8px;
+        width: auto;
+    }
+
+    .content h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .content p {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+
+    .content ul li {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .content .form {
+        width: 100%;
+    }
+
+    .content .form label {
+        font-size: 14px;
+    }
+
+    .content .form input {
+        padding: 12px;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+
+    .content .form button {
+        padding: 12px;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .sideimg {
+        display: none;
+    }
+
+    .modal-content {
+        width: calc(100% - 32px);
+        margin: 0 16px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+/* Desktop: 1440px */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
+
+    .content {
+        width: 480px;
+    }
+
+    .sideimg img {
+        width: 520px;
+        height: auto;
+    }
 }

@@ -24,6 +24,7 @@
   <main>
     <div class="container">
       <div class="content">
+        <img src="/assets/images/illustration-sign-up-mobile.svg" alt="sign up illustration" class="mobile-illustration">
         <h1> Stay updated!</h1>
         <p>Join 60,000+ product managers receiving monthly updates on:</p>
         <ul>
@@ -31,11 +32,12 @@
           <li><img src="/assets/images/icon-list.svg" alt="" srcset=""> Measuring to ensure updates are a success</li>
           <li><img src="/assets/images/icon-list.svg" alt="" srcset=""> And much more!</li>
         </ul>
-        <div class="form">
+        <form class="form" id="signup-form" novalidate>
           <label for="e-mail">Email address</label>
-          <input type="text" id="e-mail" placeholder=" email@company.com">
-          <button>Subscribe to monthly newsletter</button>
-        </div>
+          <input type="email" id="e-mail" name="email" placeholder="email@company.com" required>
+          <span class="error" id="email-error" aria-live="polite"></span>
+          <button type="submit" id="subscribe-btn">Subscribe to monthly newsletter</button>
+        </form>
         
         
       </div>
@@ -46,6 +48,18 @@
 
 
   </main>
+
+  <!-- Success modal -->
+  <div id="success-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <img src="/assets/images/icon-success.svg" class="modal-icon" alt="success icon">
+      <h2 id="modal-title">Thanks for subscribing!</h2>
+      <p class="modal-text">A confirmation email has been sent to <span id="modal-email"></span>. Please open it and click the button inside to confirm your subscription.</p>
+      <button id="modal-dismiss" class="modal-action">Dismiss message</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 
   <!-- Sign-up form end -->
 
