@@ -1,45 +1,44 @@
-document.addEventListener('DOMContentLoaded', function () {
-	const form = document.getElementById('signup-form');
-	const emailInput = document.getElementById('e-mail');
-	const emailError = document.getElementById('email-error');
-	const modal = document.getElementById('success-modal');
-	const modalClose = document.getElementById('modal-close');
-	const modalDismiss = document.getElementById('modal-dismiss');
-	const modalEmail = document.getElementById('modal-email');
+document.addEventListener("DOMContentLoaded", function () {
+	const form = document.getElementById("signup-form");
+	const emailInput = document.getElementById("e-mail");
+	const emailError = document.getElementById("email-error");
+	const modal = document.getElementById("success-modal");
+	const modalClose = document.getElementById("modal-close");
+	const modalDismiss = document.getElementById("modal-dismiss");
+	const modalEmail = document.getElementById("modal-email");
 
-	function showError(message){
+	function showError(message) {
 		emailError.textContent = message;
-		emailInput.classList.add('invalid');
+		emailInput.classList.add("invalid");
 	}
 
-	function clearError(){
-		emailError.textContent = '';
-		emailInput.classList.remove('invalid');
+	function clearError() {
+		emailError.textContent = "";
+		emailInput.classList.remove("invalid");
 	}
 
-	function showModal(email){
+	function showModal(email) {
 		modalEmail.textContent = email;
-		modal.setAttribute('aria-hidden', 'false');
-		document.body.classList.add('modal-open');
+		modal.setAttribute("aria-hidden", "false");
+		document.body.classList.add("modal-open");
 		modalDismiss.focus();
 	}
 
-	function hideModal(){
-		modal.setAttribute('aria-hidden', 'true');
-		document.body.classList.remove('modal-open');
-		
-	}
+	function hideModal() {
+		modal.setAttribute("aria-hidden", "true");
+		document.body.classList.remove("modal-open");
+			}
 
-	form.addEventListener('submit', function (e) {
+	form.addEventListener("submit", function (e) {
 		e.preventDefault();
 		clearError();
 		if (!emailInput.value) {
-			showError('Email address is required');
+			showError("Email address is required");
 			emailInput.focus();
 			return;
 		}
 		if (!emailInput.checkValidity()) {
-			showError('Please enter a valid email address');
+			showError("Valid address is required");
 			emailInput.focus();
 			return;
 		}
@@ -48,14 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		form.reset();
 	});
 
-	modalClose.addEventListener('click', hideModal);
-	modalDismiss.addEventListener('click', hideModal);
+	modalClose.addEventListener("click", hideModal);
+	modalDismiss.addEventListener("click", hideModal);
 
-	document.addEventListener('keydown', function (e) {
-		if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+	document.addEventListener("keydown", function (e) {
+		if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
 			hideModal();
 		}
 	});
-
 });
 
