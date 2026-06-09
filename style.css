@@ -38,10 +38,13 @@ main{
     padding: 20px;
     border-radius: 2rem;
     display: flex;
+    margin: 20px;
 }
 
 .content ul li{
     list-style: none;
+    font-size: 16px;
+    padding-left: 15px;
 }
 
 .content {
@@ -55,6 +58,7 @@ main{
 
 .content p{
     padding: 20px 0;
+    font-size: 16px;
 }
 
 .content ul{
@@ -70,6 +74,7 @@ main{
 
 .content .form label{
     padding-bottom: 10px;
+    font-weight: 600;
     
 }
 .content .form input{
@@ -85,4 +90,13 @@ main{
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
+}
+
+.content .form button:hover{
+    background-color: hsl(4, 100%, 67%);
+}
+
+.sideimg img{
+    height: 100%;
 }
