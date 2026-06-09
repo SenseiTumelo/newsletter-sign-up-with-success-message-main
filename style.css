@@ -48,7 +48,7 @@ main {
 
 }
 
-.content img {}
+
 
 .content {
     margin: 80px 50px;
@@ -136,22 +136,28 @@ main {
         max-width: 720px;
         padding: 48px;
         border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
     }
 
     .modal-icon {
         width: 64px;
         margin-bottom: 20px;
+            align-self: flex-start;
     }
 
     .modal-title {
         font-size: 24px;
         margin-bottom: 12px;
+            text-align: left;
     }
 
     .modal-text {
         font-size: 16px;
         color: hsl(235, 18%, 26%);
         margin-bottom: 20px;
+            text-align: left;
     }
 
     .modal-action {
@@ -161,6 +167,7 @@ main {
         color: #fff;
         border: none;
         cursor: pointer;
+            align-self: stretch;
     }
 }
 
@@ -310,8 +317,11 @@ main {
     background: hsl(234, 29%, 20%);
     color: #fff;
     cursor: pointer;
+    width: 350px;
 }
-
+.modal-content button:hover{
+    background-color: hsl(4, 100%, 67%);
+}
 
 .content .form input:invalid {
     border-color: hsl(4, 100%, 67%);
