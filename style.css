@@ -111,7 +111,6 @@ main {
 
 @media (min-width: 1440px) {
     body {
-        background-image: url('design/desktop-design.jpg');
         background-repeat: no-repeat;
         background-position: right top;
         background-size: contain;
